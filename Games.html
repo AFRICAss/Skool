@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.back-button {
+			font-size: 1.5em;
+			padding: 5px;
+			margin: 10px;
+			border-radius: 5px;
+			border: none;
+			color: white;
+			background-color: 00FFFFFF;
+			cursor: pointer;
+			text-decoration: none;
+			display: inline-block;
+			line-height: 1;
+		}
+		button {
+			font-size: 1.2em;
+			padding: 10px;
+			margin: 10px;
+			border-radius: 5px;
+			border: none;
+			color: white;
+			background-color: #4CAF50;
+			cursor: pointer;
+		}
+		img {
+			width: 100px;
+			height: 100px;
+			margin-right: 10px;
+			vertical-align: middle;
+		}
+		iframe {
+			width: 100%;
+			height: 500px;
+			border: none;
+		}
+	</style>
+	<a href="index.html" class="back-button">&#8592;</a>
+</head>
+<body>
+	<h1></h1>
+	<button onclick="loadGame('\static\src\gs\public\cookie')">
+		<img src="Cookie.png" alt="Game 1 Logo">Cookie Clicker
+	  </button>
+	<button onclick="loadGame('games/Drift')"> <img src="game2-logo.png" alt="Game 2 Logo">Drift Hunters</button>
+	<!-- add more buttons here... -->
+	
+	<iframe id="game-frame"></iframe>
+
+	<script>
+		function loadGame(gamePath) {
+			const iframe = document.getElementById('game-frame');
+			iframe.src = `${gamePath}/index.html`;
+		}
+	</script>
+	<script>
+		const selectedTheme = localStorage.getItem('theme');
+		if (selectedTheme) {
+		  document.body.style.backgroundColor = selectedTheme;
+		  document.body.style.color = '#fff';
+		}
+	</script>
+</body>
+</html>

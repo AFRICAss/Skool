@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SumTingWongINC</title>
+    <link href="https://fonts.googleapis.com/css?family=Good+Times" rel="stylesheet">
+    <style>
+      h1 {
+        text-align: center;
+        position: absolute;
+        top: 0%;
+        left: 12%;
+        transform: translate(-12%, -0%);
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        font-family: 'Good Times', sans-serif;
+        font-size: 60px;
+      }
+      .taskbar {
+        position: fixed;
+        top: 20px;
+        right: 0;
+        padding: 10px;
+        background-color: transparent;
+      }
+      .taskbar button {
+        margin-right: 10px;
+        background-color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 3px;
+        padding: 12px 20px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .taskbar button a {
+        text-decoration: none;
+      }
+      img.logo {
+        width: 150px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="taskbar">
+      <button><a href="Games.html">Gams</a></button>
+      <button><a href="Apps.html">Apps</a></button>
+      <button><a href="MovAndTv.html">Movies/Shows</a></button>
+      <button><a href="HacksandBookmarklet.html">Hacks/Bookmarklets</a></button>
+      <button><a href="Settings.html">Settings</a></button>
+    </div>
+    <img src="logo.png" alt="My logo" class="logo">
+    <h1>SumTingWongINC</h1>
+    <script>
+      const selectedTheme = localStorage.getItem('theme');
+      if (selectedTheme) {
+        document.body.style.backgroundColor = selectedTheme;
+        document.body.style.color = '#fff';
+      }
+    </script>
+  </body>
+</html>

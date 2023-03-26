@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Settings</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Good+Times" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: #f2f2f2;
+        color: #333;
+      }
+      h1 {
+        font-size: 36px;
+        text-align: center;
+        margin-top: 40px;
+        font-family: 'Good Times', sans-serif;
+      }
+      .theme-options {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+      }
+      .theme-options button {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin: 0 20px;
+        cursor: pointer;
+        border: none;
+      }
+      .theme-options .blue {
+        background-color: #3498db;
+      }
+      .theme-options .black {
+        background-color: #000000;
+      }
+      .theme-options .green {
+        background-color: #2ecc71;
+      }
+      .theme-options .purple {
+        background-color: #9b59b6;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Settings</h1>
+    <div class="theme-options">
+      <button class="blue"></button>
+      <button class="green"></button>
+      <button class="purple"></button>
+      <button class="black"></button>
+    </div>
+    <a href="index.html" class="back-button">&#8592;</a>
+    <script>
+      const blueBtn = document.querySelector('.blue');
+      const greenBtn = document.querySelector('.green');
+      const purpleBtn = document.querySelector('.purple');
+          const blackBtn = document.querySelector('.black');
+      const body = document.querySelector('body');
+
+      blueBtn.addEventListener('click', () => {
+        body.style.backgroundColor = '#3498db';
+        body.style.color = '#fff';
+      });
+
+      greenBtn.addEventListener('click', () => {
+        body.style.backgroundColor = '#2ecc71';
+        body.style.color = '#fff';
+      });
+
+      purpleBtn.addEventListener('click', () => {
+        body.style.backgroundColor = '#9b59b6';
+        body.style.color = '#fff';
+      });
+
+      blackBtn.addEventListener('click', () => {
+        body.style.backgroundColor = '#9b59b6';
+        body.style.color = '#fff';
+      });
+      const themeButtons = document.querySelectorAll('.theme-options button');
+
+function setTheme(theme) {
+  localStorage.setItem('theme', theme);
+  document.body.style.backgroundColor = theme;
+  document.body.style.color = '#fff';
+}
+
+themeButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const theme = button.classList[0];
+    setTheme(theme);
+  });
+});
+
+const selectedTheme = localStorage.getItem('theme');
+if (selectedTheme) {
+  setTheme(selectedTheme);
+}
+    </script>
+  </body>
+</html>
